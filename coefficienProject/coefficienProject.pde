@@ -5,10 +5,10 @@
 float [] coefPass = {10,0,1 };  //the first item in the list is the y intercept
                                    //the last item is the x coefficient of the hightest
                                   //exponent. 0's must be used for x's not present
-float xStart = -7;  //the first x input value
-float xEnd = 7;  //the last x input value
+float xStart = -20;  //the first x input value
+float xEnd = 20;  //the last x input value
 float xInc = .01;  //x is iterated by this amount
-float xScale = 100;  //scales what is displayed (x values)
+float xScale = 10;  //scales what is displayed (x values)
 float yScale = 1;  //scales what is displayed (y values)
 
 
@@ -34,7 +34,7 @@ float polyFunct( float[] coef, float ex){
   float carrier = 0;  //carries the acumulative sum as polyFunct iterates through the coefficients of x
 
   for( int idx = 0; idx < coef.length; idx++ ){
-    carrier = (3 * pow(ex, 2) + 2 )/( 4 * pow(ex,4));//+= coef[ idx ] * pow( ex, idx );  //acumulates the sum of the x-terms
+    carrier += coef[ idx ] * pow( ex, idx );  //acumulates the sum of the x-terms
   }
   return carrier;  //output of y for x ("ex")
 }
